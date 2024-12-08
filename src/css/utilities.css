@@ -1,0 +1,99 @@
+@layer utilities {
+    .conceal {
+        @apply invisible opacity-0;
+    }
+    .reveal {
+        @apply visible opacity-100;
+        transition:
+            opacity 600ms ease-out,
+            hidden 600ms ease-out;
+    }
+
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(359deg);
+        }
+    }
+    .loader {
+        @apply relative;
+    }
+    .loader::before,
+    .loader::after {
+        content: "";
+        @apply absolute inset-1/2 z-10 -ml-4 -mt-4 block size-8 rounded-full;
+    }
+    .loader::before {
+        @apply border-2 border-neutral opacity-10;
+    }
+    .loader::after {
+        animation: rotation 750ms infinite linear;
+        @apply border-2 border-transparent border-t-primary;
+    }
+
+    .center-x {
+        @apply left-1/2 -translate-x-1/2;
+    }
+    .center-y {
+        @apply top-1/2 -translate-y-1/2;
+    }
+    .center {
+        @apply center-x center-y;
+    }
+
+    [class*="responsive-"] {
+        &::before {
+            content: "";
+            @apply block;
+        }
+    }
+    .responsive-square {
+        &::before {
+            padding-top: 100%;
+        }
+    }
+    .responsive-3x4 {
+        &::before {
+            padding-top: 133.33334%;
+        }
+    }
+    .responsive-4x3 {
+        &::before {
+            padding-top: 75%;
+        }
+    }
+    .responsive-9x16 {
+        &::before {
+            padding-top: 177.77778%;
+        }
+    }
+    .responsive-16x9 {
+        &::before {
+            padding-top: 56.25%;
+        }
+    }
+    /**
+     * Header height
+     */
+    .header-height {
+        @apply h-20;
+    }
+    @media screen(lg) {
+        .header-height {
+            @apply h-24;
+        }
+    }
+    /**
+     * Scroll clearance for header height
+     */
+    html {
+        scroll-padding-top: theme("spacing.28");
+    }
+    @media screen(lg) {
+        html {
+            scroll-padding-top: theme("spacing.32");
+        }
+    }
+}
