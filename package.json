@@ -1,7 +1,9 @@
 {
   "name": "searchsprint-frontend-challenge",
-  "private": true,
   "version": "0.0.1",
+  "description": "Coding challenge to demonstrate frontend abilities using the Searchspring Search API",
+  "author": "Campbell McGuiness",
+  "license": "ISC",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,6 +15,7 @@
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
     "daisyui": "^4.12.14",
+    "pinia": "^2.3.0",
     "postcss": "^8.4.49",
     "postcss-import": "^16.1.0",
     "prettier": "^3.4.2",

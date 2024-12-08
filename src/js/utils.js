@@ -12,3 +12,27 @@ export function formatCurrency({ amount, currency = 'AUD' }) {
   });
   return formatter.format(amount);
 }
+
+export function poll(getVal, callback, { once = false, debug = false } = {}) {
+  if (debug) {
+    console.log('poll started');
+  }
+  let oldVal = getVal();
+  const interval = setInterval(() => {
+    const newVal = getVal();
+    if (oldVal !== newVal) {
+      if (debug) {
+        console.log('poll old value:', oldVal);
+        console.log('poll new value:', newVal);
+      }
+      callback(newVal);
+      oldVal = newVal;
+      if (once) {
+        if (debug) {
+          console.log('poll stopped');
+        }
+        clearInterval(interval);
+      }
+    }
+  }, 300);
+}
