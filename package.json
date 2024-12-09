@@ -1,7 +1,7 @@
 {
   "name": "searchsprint-frontend-challenge",
   "version": "0.0.1",
-  "description": "Coding challenge to demonstrate frontend abilities using the Searchspring Search API",
+  "description": "Coding challenge submission demonstrating frontend abilities using the Searchspring Search API",
   "author": "Campbell McGuiness",
   "license": "ISC",
   "type": "module",

@@ -1,7 +1,7 @@
 import daisyui from 'daisyui';
 
 const palette = {
-  primary: '#E45C52',
+  primary: '#e45c52',
   'primary-content': '#fef3c7',
   secondary: '#155e75',
   'secondary-content': '#ecfccb',
