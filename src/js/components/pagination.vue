@@ -1,5 +1,5 @@
 <template>
-  <div class="conceal flex w-full justify-center gap-x-1 p-4" :class="{ reveal: currentPage }">
+  <div class="conceal flex w-full justify-center gap-x-1 p-4" :class="{ reveal: currentPage && totalPages > 1 }">
     <a class="btn btn-square" :href="hrefPrev" :class="{ 'btn-disabled': !hrefPrev }" @click.prevent="$emit('changePage', previousPage)">
       <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />

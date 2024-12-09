@@ -1,0 +1,13 @@
+@layer components {
+    .btn {
+        @apply font-normal uppercase tracking-wide;
+    }
+    .product .btn {
+        @apply h-10 min-h-10 text-xs;
+        &.btn-circle,
+        &.btn-square {
+            @apply w-10;
+            padding: unset;
+        }
+    }
+}
