@@ -1,21 +1,23 @@
 <template>
-  <div class="conceal flex w-full justify-center gap-x-1 p-4" :class="{ reveal: currentPage && totalPages > 1 }">
-    <a class="btn btn-square" :href="hrefPrev" :class="{ 'btn-disabled': !hrefPrev }" @click.prevent="$emit('changePage', previousPage)">
-      <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-      </svg>
-    </a>
-    <template v-for="{ href, num, stub } in pages">
-      <span class="btn btn-square btn-ghost pointer-events-none" v-if="stub">...</span>
-      <a class="btn btn-square" v-else :href="href" :class="{ 'btn-primary': num === currentPage }" @click.prevent="$emit('changePage', num)">
-        {{ num }}
+  <div class="conceal carousel carousel-center w-full" :class="{ reveal: currentPage && totalPages > 1 }">
+    <div class="carousel-item mx-auto flex justify-center gap-x-1 p-4">
+      <a class="btn btn-square" :href="hrefPrev" :class="{ 'btn-disabled': !hrefPrev }" @click.prevent="$emit('changePage', previousPage)">
+        <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
       </a>
-    </template>
-    <a class="btn btn-square" :href="hrefNext" :class="{ 'btn-disabled': !hrefNext }" @click.prevent="$emit('changePage', nextPage)">
-      <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-      </svg>
-    </a>
+      <template v-for="{ href, num, stub } in pages">
+        <span class="btn btn-square btn-ghost pointer-events-none" v-if="stub">...</span>
+        <a class="btn btn-square" v-else :href="href" :class="{ 'btn-primary': num === currentPage }" @click.prevent="$emit('changePage', num)">
+          {{ num }}
+        </a>
+      </template>
+      <a class="btn btn-square" :href="hrefNext" :class="{ 'btn-disabled': !hrefNext }" @click.prevent="$emit('changePage', nextPage)">
+        <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </a>
+    </div>
   </div>
 </template>
 
